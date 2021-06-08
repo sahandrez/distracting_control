@@ -1,8 +1,6 @@
 # The Distracting Control Suite
 
 ---
-**NOTE**
-
 This is a copy of the original [distracting_control](https://github.com/google-research/google-research/tree/master/distracting_control) 
 repository, with the only change being the reorganization of the package to be able to install and easily use in other codes. 
 Simply clone this repo and run `pip install -e .`.
