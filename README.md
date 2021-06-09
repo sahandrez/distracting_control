@@ -2,8 +2,8 @@
 
 ---
 This is a copy of the original [distracting_control](https://github.com/google-research/google-research/tree/master/distracting_control) 
-repository, with the only change being the reorganization of the package to be able to install and easily use in other codes. 
-Simply clone this repo and run `pip install -e .`.
+repository, with the only changes being the reorganization of the package to be able to install and easily use in other codes. 
+Additionally, dependency on TensorFlow has been completely removed. Simply clone this repo and run `pip install -e .`.
 ---
 
 `distracting_control` extends `dm_control` with static or dynamic visual
