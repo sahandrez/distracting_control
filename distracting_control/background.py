@@ -91,6 +91,7 @@ class DistractingBackgroundEnv(control.Environment):
                ground_plane_alpha=1.0,
                num_videos=None,
                dynamic=False,
+               dynamic_bg_freq=1,
                seed=None,
                shuffle_buffer_size=None):
 
@@ -102,6 +103,7 @@ class DistractingBackgroundEnv(control.Environment):
     self._ground_plane_alpha = ground_plane_alpha
     self._random_state = np.random.RandomState(seed=seed)
     self._dynamic = dynamic
+    self._dynamic_bg_freq = dynamic_bg_freq
     self._shuffle_buffer_size = shuffle_buffer_size
     self._background = None
     self._current_img_index = 0
@@ -213,7 +215,7 @@ class DistractingBackgroundEnv(control.Environment):
       self._reset_background()
       return time_step
 
-    if self._dynamic and self._video_paths:
+    if self._dynamic and self._video_paths and not self._step_count % self._dynamic_bg_freq:
       # Move forward / backward in the image sequence by updating the index.
       self._current_img_index += self._step_direction
 
