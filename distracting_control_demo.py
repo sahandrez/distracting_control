@@ -57,13 +57,14 @@ def main(unused_argv):
       # Get the first frame.
       time_step = env.reset()
       frame = time_step.observation['pixels'][:, :, 0:3]
+      output_dir = os.path.expandvars(FLAGS.output_dir)
 
       # Save the first frame.
       try:
-        os.mkdir(FLAGS.output_dir)
+        os.mkdir(output_dir)
       except OSError:
         pass
-      filepath = os.path.join(FLAGS.output_dir, f'{i:02d}-{j:02d}.jpg')
+      filepath = os.path.join(output_dir, f'{i:02d}-{j:02d}.jpg')
       image = PIL.Image.fromarray(frame)
       image.save(filepath)
   print(f'Saved results to {FLAGS.output_dir}')
