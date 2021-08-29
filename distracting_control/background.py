@@ -113,6 +113,7 @@ class DistractingBackgroundEnv(control.Environment):
       # plane alpha value.
       self._video_paths = []
     else:
+      dataset_path = os.path.expandvars(dataset_path)
       # Use all videos if no specific ones were passed.
       if not dataset_videos:
         dataset_videos = sorted(Path(dataset_path).glob('*/'))
